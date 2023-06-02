@@ -9,7 +9,8 @@ export const Select = (props) => {
     return (
         <div className='select-component'>
             <label>{props.label}</label>
-            <select required={props.required} value={props.value} onChange={typed}>
+            <select required={props.required} value={props.value} onChange={typed} placeholder="Selecione um curso...">
+                <option value={""}></option>
                 {props.items.map(item => {
                     return <option key={item}>{item}</option>;
                 })}

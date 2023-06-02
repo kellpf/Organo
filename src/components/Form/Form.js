@@ -11,15 +11,6 @@ export const Form = (props) => {
     const [image, setImage] = useState('');
     const [course, setCourse] = useState('');
 
-    const cursos = [
-        'Matemática',
-        'História',
-        'Engenharia civil',
-        'Medicina',
-        'Design',
-        'Ciência sociais'
-    ];
-
     const save = (event) => {
         event.preventDefault();
         props.newStudent({
@@ -28,6 +19,11 @@ export const Form = (props) => {
             image,
             course
         });
+        
+        setName('');
+        setPosition('');
+        setImage('');
+        setCourse('');
     }
 
     return (
@@ -56,7 +52,7 @@ export const Form = (props) => {
                 <Select 
                 required={true} 
                 label="Curso" 
-                items={cursos}
+                items={props.courses}
                 value={course}
                 changed={value => {setCourse(value)}}
                 >

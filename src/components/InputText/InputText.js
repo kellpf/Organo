@@ -6,7 +6,6 @@ export const InputText = (props) => {
 
     // const changed = (event) => {
     //     setValue(event.target.value);
-    //     console.log(value);
     // }
 
     const typed = (event) => {

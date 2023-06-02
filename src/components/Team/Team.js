@@ -1,9 +1,25 @@
+import Student from '../Student';
 import './Team.css';
 
 export const Team = (props) => {
     return (
-        <section className='team'>
-            <h3>{props.name}</h3>
+
+        // condicional
+        (props.students.length > 0) &&
+        <section className='team' style={{ backgroundColor: props.secundaryColor }}>
+            <h3 style={{ borderColor: props.primaryColor }}>{props.name}</h3>
+            <div className='students'>
+                {props.students.map(student =>
+                    <Student
+                        key={student.name}
+                        name={student.name}
+                        position={student.position}
+                        image={student.image}
+                        primaryColor={props.primaryColor}
+                    >
+                    </Student>
+                )}
+            </div>
         </section>
     );
 }   
