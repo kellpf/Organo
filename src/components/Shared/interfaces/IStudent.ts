@@ -3,4 +3,5 @@ export interface IStudent {
     position: string;
     image: string;
     course?: string;
+    date: string;
 }

@@ -5,9 +5,10 @@ export interface StudentProps {
     position: string;
     image: string;
     backgroundColor: string;
+    date: string;
 }
 
-export const Student = ({ name, position, image, backgroundColor }: StudentProps) => {
+export const Student = ({ name, position, image, backgroundColor, date }: StudentProps) => {
     return (
 
         <div className="student">
@@ -18,6 +19,7 @@ export const Student = ({ name, position, image, backgroundColor }: StudentProps
             <div className="footer">
                 <h4>{name}</h4>
                 <h5>{position}</h5>
+                <h5>{new Date(date).toLocaleDateString()}</h5>
             </div>
         </div>
     );

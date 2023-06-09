@@ -16,6 +16,7 @@ export const Form = (props: FormProps) => {
     const [position, setPosition] = useState('');
     const [image, setImage] = useState('');
     const [course, setCourse] = useState('');
+    const [date, setDate] = useState('');
 
     const save = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -23,13 +24,15 @@ export const Form = (props: FormProps) => {
             name,
             position,
             image,
-            course
+            course,
+            date
         });
 
         setName('');
         setPosition('');
         setImage('');
         setCourse('');
+        setDate('');
     }
 
     return (
@@ -48,6 +51,15 @@ export const Form = (props: FormProps) => {
                     placeholder="Digite seu cargo"
                     value={position}
                     changed={value => setPosition(value)}
+                />
+                <InputText
+                    type="date"
+                    required={true}
+                    label="Data de entrada no curso"
+                    value={date}
+                    changed={value => setDate(value)}
+                    placeholder=''
+                
                 />
                 <InputText
                     label="Imagem"

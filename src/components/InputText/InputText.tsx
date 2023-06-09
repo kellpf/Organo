@@ -6,9 +6,10 @@ interface InputTextProps {
     placeholder?: string;
     value: string;
     required?: boolean;
+    type?: 'text' | 'number' | 'date' | 'number';
 };
 
-export const InputText = ({ changed, label, placeholder, value, required = false }: InputTextProps) => {
+export const InputText = ({ changed, label, placeholder, value, required = false, type = 'text' }: InputTextProps) => {
 
     // const [value, setValue] = useState('Jessiezinho');
 
@@ -30,6 +31,7 @@ export const InputText = ({ changed, label, placeholder, value, required = false
                 onChange={typed}
                 placeholder={placeholder}
                 required={required}
+                type={type}
             >
             </input>
         </div>

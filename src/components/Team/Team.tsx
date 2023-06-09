@@ -26,6 +26,7 @@ export const Team = ({ name, primaryColor, secundaryColor, students }: TeamProps
                             position={student.position}
                             image={student.image}
                             backgroundColor={primaryColor}
+                            date={student.date}
                         />
                     )}
                 </div>
