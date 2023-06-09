@@ -2,6 +2,7 @@ import { useState } from "react";
 import Banner from "./components/Banner";
 import Form from "./components/Form";
 import Team from "./components/Team";
+import { IStudent } from "./components/Shared/interfaces/IStudent";
 import Footer from "./components/Footer";
 
 function App() {
@@ -39,17 +40,20 @@ function App() {
     },
   ];
 
-  const [students, setStudent] = useState([]);
+  const [students, setStudent] = useState<IStudent[]>([]);
 
-  const addStudent = (student) => {
+  const addStudent = (student: IStudent) => {
     setStudent([...students, student]);
   }
 
   return (
     <div className="App">
 
-      <Banner></Banner>
-      <Form courses={teams.map(team => team.name)} newStudent={student => addStudent(student)}></Form>
+      <Banner urlImage="/images/banner.png" textAlt="textAlt"></Banner>
+      <Form
+        courses={teams.map(team => team.name)}
+        newStudent={student => addStudent(student)}
+      />
 
       {teams.map(team =>
         <Team
@@ -58,11 +62,11 @@ function App() {
           primaryColor={team.primaryColor}
           secundaryColor={team.secundaryColor}
           students={students.filter(student => student.course === team.name)}
-        >
-        </Team>
+        />
       )}
 
       <Footer></Footer>
+    
     </div>
   );
 }

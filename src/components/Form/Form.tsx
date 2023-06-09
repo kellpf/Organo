@@ -3,15 +3,21 @@ import Button from "../Button";
 import InputText from "../InputText";
 import Select from "../Select";
 import './Form.css';
+import { IStudent } from "../Shared/interfaces/IStudent";
 
-export const Form = (props) => {
+interface FormProps {
+    newStudent: (student: IStudent) => void;
+    courses: string[];
+}
+
+export const Form = (props: FormProps) => {
 
     const [name, setName] = useState('');
     const [position, setPosition] = useState('');
     const [image, setImage] = useState('');
     const [course, setCourse] = useState('');
 
-    const save = (event) => {
+    const save = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         props.newStudent({
             name,
@@ -19,7 +25,7 @@ export const Form = (props) => {
             image,
             course
         });
-        
+
         setName('');
         setPosition('');
         setImage('');
@@ -49,17 +55,15 @@ export const Form = (props) => {
                     value={image}
                     changed={value => setImage(value)}
                 />
-                <Select 
-                required={true} 
-                label="Curso" 
-                items={props.courses}
-                value={course}
-                changed={value => {setCourse(value)}}
-                >
-                </Select>
-                <Button>
-                    Criar card
-                </Button>
+                <Select
+                    required={true}
+                    label="Curso"
+                    items={props.courses}
+                    value={course}
+                    changed={value => { setCourse(value) }}
+                />
+
+                <Button children={'Criar card'}></Button>
             </form>
         </section>
     );
